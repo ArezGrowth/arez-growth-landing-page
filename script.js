@@ -5,7 +5,8 @@ document.documentElement.classList.add('js');
   const status = document.querySelector('#form-status');
   const submitButton = document.querySelector('#demo-submit');
   const iframe = document.querySelector('iframe[name="demo-form-iframe"]');
-  if (!form || !status || !submitButton || !iframe) return;
+  const successPanel = document.querySelector('#demo-success');
+  if (!form || !status || !submitButton || !iframe || !successPanel) return;
 
   const endpoint = form.action;
   let isSubmitting = false;
@@ -24,11 +25,20 @@ document.documentElement.classList.add('js');
     submitButton.textContent = value ? 'Submitting…' : 'Request a Demo ↗';
   };
 
+  const showSuccess = () => {
+    setSubmitting(false);
+    form.reset();
+    submitButton.hidden = true;
+    submitButton.style.display = 'none';
+    setStatus('success', 'Thank you. Your demo request has been received successfully.');
+    successPanel.hidden = true;
+    successPanel.style.display = 'none';
+  };
+
   iframe.addEventListener('load', () => {
     iframeReady = true;
     if (nativeFallbackUsed && isSubmitting) {
-      setSubmitting(false);
-      setStatus('success', 'Thank you. Your demo request has been received.');
+      showSuccess();
     }
   });
 
@@ -58,9 +68,7 @@ document.documentElement.classList.add('js');
         body
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      setSubmitting(false);
-      setStatus('success', 'Thank you. Your demo request has been received.');
-      form.reset();
+      showSuccess();
     } catch (error) {
       // Google Apps Script may accept the POST but block reading its response via CORS.
       // The native form fallback still submits to the same endpoint without exposing a response.
