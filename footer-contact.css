@@ -1,0 +1,9 @@
+/* Footer contact refinement */
+.footer-contact{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.footer-contact a{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:color .18s ease}
+.footer-contact a:hover,.footer-contact a:focus-visible{color:var(--blue)}
+.footer-contact-icon{font-size:.9rem;line-height:1}
+.whatsapp-icon{width:17px;height:17px;flex:0 0 17px;color:#128c7e}
+.footer-copyright{white-space:nowrap}
+@media(max-width:900px){.footer-inner{flex-wrap:wrap;gap:1rem 1.5rem}.footer-contact{order:3;width:100%}}
+@media(max-width:650px){.footer-inner{align-items:flex-start}.footer-contact{flex-direction:column;align-items:flex-start;gap:.65rem}.footer-copyright{margin-top:.25rem}}
