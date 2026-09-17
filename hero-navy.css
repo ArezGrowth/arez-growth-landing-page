@@ -1,0 +1,15 @@
+/* Hero Navy refinement — preserves existing layout while establishing Navy → White → Navy → White → Navy rhythm. */
+.hero{
+  background:var(--navy);
+  color:#fff;
+}
+.hero h1{color:#fff}
+.hero .eyebrow{color:var(--cyan)}
+.hero-copy{color:#c5d2e5}
+.hero-note{color:#9fb0c8}
+.hero .button-secondary{
+  border-color:rgba(255,255,255,.32);
+  background:transparent;
+  color:#fff;
+}
+.hero .button-secondary:hover{background:rgba(255,255,255,.08)}

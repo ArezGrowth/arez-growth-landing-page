@@ -54,6 +54,19 @@ document.documentElement.classList.add('js');
 
     if (form.elements.website.value) return;
 
+    const emailInput = form.querySelector('#work-email');
+    const emailCheck = typeof validateEmailLocally === 'function'
+      ? validateEmailLocally(emailInput?.value)
+      : { ok: false, message: 'Email validation is temporarily unavailable.' };
+
+    if (!emailCheck.ok) {
+      setStatus('error', emailCheck.message || 'Please enter a real, valid email address.');
+      emailInput?.focus();
+      return;
+    }
+
+    if (emailInput) emailInput.value = emailCheck.email;
+
     setSubmitting(true);
     setStatus('submitting', 'Submitting…');
     const body = new URLSearchParams(new FormData(form));
