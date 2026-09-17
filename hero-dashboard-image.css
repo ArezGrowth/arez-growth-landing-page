@@ -1,0 +1,4 @@
+.hero-dashboard-image-wrap{width:100%;max-width:620px;justify-self:end;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(2,12,27,.28);border:1px solid rgba(255,255,255,.18)}
+.hero-dashboard-image{display:block;width:100%;height:auto;object-fit:contain}
+@media(max-width:900px){.hero-dashboard-image-wrap{max-width:680px;justify-self:center;margin-inline:auto}}
+@media(max-width:650px){.hero-dashboard-image-wrap{border-radius:12px;box-shadow:0 16px 38px rgba(2,12,27,.24)}}
